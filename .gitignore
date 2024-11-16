@@ -1,0 +1,11 @@
+# env
+*.env
+!sample-.env
+
+# node-modules
+node_modules/
+
+# other
+screenshot.png
+test.js
+system.json
