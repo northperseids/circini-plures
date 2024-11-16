@@ -51,14 +51,14 @@ async function createSystem(discid, sysname, pool, interaction) {
                 await conn.query(sql, [san_discid, san_sysname]);
                 interaction.editReply(`System ${san_sysname} created!`);
             } catch (err) {
-                interaction.editReply({ content: `Error! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
+                interaction.editReply({ content: `Error 01! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
                 throw err;
             } finally {
                 if (conn) conn.end();
             }
         }
     } catch (err) {
-        interaction.editReply({ content: `Error! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
+        interaction.editReply({ content: `Error 02! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
         throw err;
     } finally {
         if (conn) conn.end();
@@ -66,8 +66,6 @@ async function createSystem(discid, sysname, pool, interaction) {
 }
 
 async function createMember(discid, memname, proxy, color, avatar, pool, interaction) {
-
-    let conn;
 
     let sql = "SELECT proxy, memname FROM members WHERE discid = ? AND memname = ?"
 
@@ -100,18 +98,20 @@ async function createMember(discid, memname, proxy, color, avatar, pool, interac
                     await conn.query(sql, [san_discid, san_memname, san_proxy, san_color, san_avatar]);
                     interaction.editReply(`Member ${memname} created!`);
                 } catch (err) {
+                    interaction.editReply({ content: `Error 03! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
                     throw err;
                 } finally {
                     if (conn) conn.end();
                 }
             } catch (err) {
+                interaction.editReply({ content: `Error 04! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
                 throw err;
             } finally {
                 if (conn) conn.end();
             }
         }
     } catch (err) {
-        interaction.editReply({ content: `Error! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
+        interaction.editReply({ content: `Error 05! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
         throw err;
     } finally {
         if (conn) conn.end();
@@ -134,7 +134,7 @@ async function listMember(san_memname, san_discid, conn, interaction) {
 
         interaction.editReply({ embeds: [embed] });
     } catch (err) {
-        interaction.editReply({ content: `Error! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
+        interaction.editReply({ content: `Error 06! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
         throw err;
     } finally {
         if (conn) conn.end();
@@ -148,10 +148,10 @@ async function editColor(newColor, san_discid, san_memname, conn, interaction) {
         if (rows['affectedRows'] === 1) {
             interaction.editReply(`${san_memname}'s color has been changed to ${newColor}!`)
         } else {
-            interaction.editReply({ content: `Error! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
+            interaction.editReply({ content: `Error 07! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
         }
     } catch (err) {
-        interaction.editReply({ content: `Error! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
+        interaction.editReply({ content: `Error 08! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
         throw err;
     } finally {
         if (conn) conn.end();
@@ -165,10 +165,10 @@ async function editName(newName, san_discid, san_memname, conn, interaction) {
         if (rows['affectedRows'] === 1) {
             interaction.editReply(`${san_memname}'s name has been changed to ${newName}!`)
         } else {
-            interaction.editReply({ content: `Error! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
+            interaction.editReply({ content: `Error 09! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
         }
     } catch (err) {
-        interaction.editReply({ content: `Error! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
+        interaction.editReply({ content: `Error 10! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
         throw err;
     } finally {
         if (conn) conn.end();
@@ -182,10 +182,10 @@ async function editProxy(newProxy, san_discid, san_memname, conn, interaction) {
         if (rows['affectedRows'] === 1) {
             interaction.editReply(`${san_memname}'s proxy has been changed to ${newProxy}!`)
         } else {
-            interaction.editReply({ content: `Error! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
+            interaction.editReply({ content: `Error 11! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
         }
     } catch (err) {
-        interaction.editReply({ content: `Error! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
+        interaction.editReply({ content: `Error 12! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
         throw err;
     } finally {
         if (conn) conn.end();
@@ -209,10 +209,10 @@ async function editAv(newAv, san_discid, san_memname, conn, interaction) {
         if (rows['affectedRows'] === 1) {
             interaction.editReply(`${san_memname}'s avatar has been changed!`)
         } else {
-            interaction.editReply({ content: `Error! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
+            interaction.editReply({ content: `Error 13! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
         }
     } catch (err) {
-        interaction.editReply({ content: `Error! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
+        interaction.editReply({ content: `Error 14! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
         throw err;
     } finally {
         if (conn) conn.end();
@@ -226,13 +226,13 @@ async function deleteMember(san_discid, san_memname, conn, interaction) {
             await conn.query(sql, [san_discid, san_memname]);
             interaction.editReply(`Member ${san_memname} deleted!`);
         } catch (err) {
-            interaction.editReply({ content: `Error! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
+            interaction.editReply({ content: `Error 15! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
             throw err;
         } finally {
             if (conn) conn.end();
         }
     } catch (err) {
-        interaction.editReply({ content: `Error! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
+        interaction.editReply({ content: `Error 16! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
         throw err;
     } finally {
         if (conn) conn.end();
@@ -248,10 +248,10 @@ async function renameSystem(san_discid, san_sysname, pool, interaction) {
         if (rows['affectedRows'] === 1) {
             interaction.editReply(`System name changed to ${san_sysname}!`)
         } else {
-            interaction.editReply(`Error! Do you have a system registered? (If so, did you spell it right?)`);
+            interaction.editReply(`Error 17! Do you have a system registered? (If so, did you spell it right?)`);
         }
     } catch (err) {
-        interaction.editReply({ content: `Error! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
+        interaction.editReply({ content: `Error 18! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
         throw err;
     } finally {
         if (conn) conn.end();
@@ -284,7 +284,7 @@ async function listSystem(san_discid, pool, interaction) {
                     .setColor('#FFFFFF')
                     .setTitle(sysname)
                     .setDescription(page.join('\n'))
-                    .setFooter({text: `Displaying ${i+1}-${Math.min(i + pagination, i + page.length)} of ${rows.length} results.`})
+                    .setFooter({ text: `Displaying ${i + 1}-${Math.min(i + pagination, i + page.length)} of ${rows.length} results.` })
                 pages.push(embed);
             }
 
@@ -369,12 +369,12 @@ async function listSystem(san_discid, pool, interaction) {
                 .setColor('#FFFFFF')
                 .setTitle(sysname)
                 .setDescription(members.join('\n'))
-                .setFooter({text: `${rows.length} results.`})
+                .setFooter({ text: `${rows.length} results.` })
             interaction.editReply({ embeds: [embed] })
         }
 
     } catch (err) {
-        interaction.editReply({ content: `Error! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
+        interaction.editReply({ content: `Error 19! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
         throw err;
     } finally {
         if (conn) conn.end();
@@ -402,16 +402,16 @@ async function deleteSystem(san_discid, confirm, pool, interaction) {
                 await conn.query(sql2, [san_discid]);
                 interaction.editReply(`System ${rows[0]['sysname']} and all members deleted.`)
             } catch (err) {
-                interaction.editReply({ content: `Error! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
+                interaction.editReply({ content: `Error 20! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
                 throw err;
             } finally {
                 if (conn) conn.end();
             }
         } else {
-            interaction.editReply(`Error! Either system name is different, or you do not have a registered system.`)
+            interaction.editReply(`Error 21! Either system name is different, or you do not have a registered system.`)
         }
     } catch (err) {
-        interaction.editReply({ content: `Error! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
+        interaction.editReply({ content: `Error 22! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
         throw err;
     } finally {
         if (conn) conn.end();
@@ -445,13 +445,13 @@ async function handleProxying(proxy, message, san_discid, pool, interaction) {
                 conn.end();
             }
         } catch (err) {
-            interaction.editReply({ content: `Error! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
+            interaction.editReply({ content: `Error 23! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
             throw err;
         } finally {
             if (conn) conn.end();
         }
     } catch (err) {
-        interaction.editReply({ content: `Error! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
+        interaction.editReply({ content: `Error 24! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
         throw err;
     } finally {
         if (conn) conn.end();
@@ -584,7 +584,7 @@ client.on('interactionCreate', async (interaction) => {
                     return;
                 }
             } catch (err) {
-                interaction.editReply({ content: `Error! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
+                interaction.editReply({ content: `Error 25! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
                 throw err;
             }
         }
@@ -621,20 +621,40 @@ client.on('interactionCreate', async (interaction) => {
 
         let conn;
 
-        // see if member exists and open connection
+        // first check if user is ADDING a member
+        if (interaction.options.getSubcommand() === 'add') {
+            let san_memname = sanitizer.value(interaction.options.get('name').value, 'str');
+            let san_proxy = sanitizer.value(interaction.options.get('proxy').value, 'str').toLowerCase();
+            let color = '#FFFFFF';
+            let avatar = '<:compass:1307198358879993866>';
+            try {
+                color = sanitizer.value(interaction.options.get('color').value, 'str');
+            } catch (err) {
+                //
+            }
+            try {
+                let av = sanitizer.value(interaction.options.get('avatar').value, 'str');
+                let isValidURL = checkURL(av);
+                if (isValidURL || av.startsWith('<:')) {
+                    avatar = av
+                }
+            } catch (err) {
+                //
+            }
+            createMember(san_discid, san_memname, san_proxy, color, avatar, pool, interaction).then(() => { pool.end(); });
+            return;
+        }
+
+        // otherwise, see if member exists and open connection
         try {
             let sql = "SELECT memname FROM members WHERE discid = ? AND memname = ?"
             conn = await pool.getConnection();
             const rows = await conn.query(sql, [san_discid, san_memname]);
             if (rows.length > 0) {
                 exists = true;
-            } else {
-                interaction.editReply(`Cannot find member ${san_memname}.`);
-                conn.end();
-                return;
             }
         } catch (err) {
-            interaction.editReply({ content: `Error! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
+            interaction.editReply({ content: `Error 26! (If this happens repeatedly, please contact @neartsua.)`, ephemeral: true });
             throw err;
         }
 
@@ -663,33 +683,9 @@ client.on('interactionCreate', async (interaction) => {
 
                 deleteMember(san_discid, san_memname, conn, interaction).then(() => { pool.end() });
 
-            } else if (interaction.options.getSubcommand() === 'add') {
-                await interaction.deferReply()
-
-                let san_memname = sanitizer.value(interaction.options.get('name').value, 'str');
-                let san_proxy = sanitizer.value(interaction.options.get('proxy').value, 'str').toLowerCase();
-                let color = '#FFFFFF';
-                let avatar = '<:compass:1307198358879993866>';
-                try {
-                    color = sanitizer.value(interaction.options.get('color').value, 'str');
-                } catch (err) {
-                    //
-                }
-                try {
-                    let url = sanitizer.value(interaction.options.get('avatar').value, 'str');
-                    let isValidURL = checkURL(url);
-                    if (isValidURL) {
-                        avatar = url
-                    }
-                } catch (err) {
-                    //
-                }
-                let discid = interaction.user.id;
-
-                createMember(discid, san_memname, san_proxy, color, avatar, pool, interaction).then(() => { pool.end(); });
             }
         } else {
-            interaction.editReply({ content: `No system members found. Add some with /add.`, ephemeral: true })
+
         }
         if (conn) {
             conn.end();
