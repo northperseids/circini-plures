@@ -1,6 +1,6 @@
 # circini
-![Image showing two embedded proxied messages in conversation](./screenshot.png)<br><br>
-Small bot to allow pseudo-proxying in Discord DMs using embeds or custom emojis.<br><br>
+![Image showing two embedded proxied messages in conversation](./screenshot.png)<br>
+Small bot to allow pseudo-proxying in Discord DMs using embeds or custom emojis. (This is a multi-user bot that does NOT have to be self-hosted, unlike the [other Circini bot](https://github.com/northperseids/circini).)<br>
 
 ## Usage
 
@@ -10,7 +10,7 @@ Small bot to allow pseudo-proxying in Discord DMs using embeds or custom emojis.
 - Run `/system create` to set up a new system.
 - Run `/member add` to add a member.
 - You should now be able to go into any DM channel and run the proxy command `/proxy`. Input the member proxy and message, then send!
-- Done!
+- Done! You can add more members and edit their properties using commands below.
 
 ### Commands
 All commands:

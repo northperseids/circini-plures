@@ -6,6 +6,5 @@
 node_modules/
 
 # other
-screenshot.png
 test.js
 system.json
