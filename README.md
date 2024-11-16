@@ -5,7 +5,7 @@ Small bot to allow pseudo-proxying in Discord DMs using embeds or custom emojis.
 ## Usage
 
 ### Quickstart
-- Authorize the bot on your USER PROFILE, *NOT* A SERVER. Link [here](https://discord.com/oauth2/authorize?client_id=1221503250616946831).
+- Authorize the bot on your USER PROFILE, *NOT* A SERVER. Link in support server (see bottom of readme).
 - Go to your DMs and start a DM with the bot.
 - Run `/system create` to set up a new system.
 - Run `/member add` to add a member.
