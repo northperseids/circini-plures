@@ -1,6 +1,6 @@
 # circini
 ![Image showing two embedded proxied messages in conversation](./screenshot.png)<br>
-Small bot to allow pseudo-proxying in Discord DMs using embeds or custom emojis. (This is a multi-user bot that does NOT have to be self-hosted, unlike the [other Circini bot](https://github.com/northperseids/circini).)<br>
+Small bot to allow pseudo-proxying in Discord DMs using embeds or custom emojis.<br>
 
 ## Usage
 
